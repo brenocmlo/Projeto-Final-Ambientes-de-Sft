@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'app_cad_user'
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

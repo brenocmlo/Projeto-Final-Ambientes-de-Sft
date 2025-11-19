@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -10,6 +11,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="{% static 'app_cad_user/style.css' %}">
+
     <title>Cadastro!</title>
 </head>
 
@@ -19,16 +22,32 @@
             <span class="navbar-brand mb-0 h1">Cadastro de Usuário</span>
         </div>
     </nav>
-    <form action="{% url 'listagem_user' %}" method="post">
-        {% csrf_token %}
-        <div style="text-align: center;" class="container ">
-            <h1>Area de cadastro</h1>
-
-            Nome <input name="nome" class="form-control-sm" type="text">
-            Idade <input name="idade" class="form-control-sm" type="number">
-            <button type="submit" class="form-control-sm">Cadastrar</button>
+    <div class="page">
+        <div class="card">
+            <section class="hero">
+                <div class="brand">
+                    <div class="logo">UF</div>
+                    <div>
+                        <h1>Cadastro de Usuários</h1>
+                        <p class="lead">Adicione e visualize usuários de forma simples.</p>
+                    </div>
+                </div>
+                <div class="user-list">
+                    <!-- loop de usuarios -->
+                </div>
+            </section>
+            <aside class="sidebar">
+                <form method="post">{% csrf_token %}
+                    <label for="nome">Nome</label>
+                    <input id="nome" name="nome" type="text" required>
+                    <label for="idade">Idade</label>
+                    <input id="idade" name="idade" type="number" min="0">
+                    <button class="btn btn-primary" type="submit">Salvar usuário</button>
+                </form>
+            </aside>
+            <!--<div class="card-footer">Versão dev • mantenha DEBUG ativo só em desenvolvimento</div>-->
         </div>
-    </form>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

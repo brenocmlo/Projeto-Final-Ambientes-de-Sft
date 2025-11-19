@@ -1,20 +1,27 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'app_cad_user/style.css' %}">
+
 <div class="container">
     <h1>Listagem de Usuários</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Idade</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for usuario in usuarios %}
-            <tr>
-                <th scope="row">{{ usuario.id }}</th>
-                <td>{{ usuario.nome }}</td>
-                <td>{{ usuario.idade }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+    <div class="table-wrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-center">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col" class="col-center">Idade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <th scope="row" class="col-center">{{ usuario.id }}</th>
+                    <td>{{ usuario.nome }}</td>
+                    <td class="col-center">{{ usuario.idade }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,237 @@
+:root{
+    --bg-1: #0f172a;    /* deep navy */
+    --bg-2: #0b2545;    /* darker blue */
+    --accent: #ff6b6b;  /* coral accent */
+    --accent-2: #7dd3fc;/* soft cyan */
+    --card: #0b1220;    /* card background */
+    --muted: #9aa4b2;
+    --text: #e6eef6;
+    --glass: rgba(255,255,255,0.04);
+}
+
+*{box-sizing:border-box}
+html,body{
+    height:100%;
+    margin:0;
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* page layout */
+.page {
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:3rem 1rem;
+}
+
+/* centered card */
+.card {
+    width:100%;
+    max-width:980px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    border-radius:12px;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+    padding:1.25rem;
+    display:grid;
+    grid-template-columns: 1fr 380px;
+    gap:1.25rem;
+    border:1px solid var(--glass);
+}
+
+/* header / info column */
+.hero {
+    padding:1rem 1.25rem;
+}
+.brand {
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+    margin-bottom:0.75rem;
+}
+.logo {
+    width:54px;
+    height:54px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    color:#08101b;
+    box-shadow: 0 6px 18px rgba(13,30,43,0.35);
+}
+h1{
+    margin:0 0 0.5rem 0;
+    font-size:1.6rem;
+    letter-spacing: -0.4px;
+}
+.lead{
+    color:var(--muted);
+    margin:0 0 1rem 0;
+}
+
+/* actions / form column */
+.sidebar{
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding:1rem;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.02);
+}
+form label{
+    display:block;
+    font-size:0.85rem;
+    color:var(--muted);
+    margin-bottom:0.25rem;
+}
+input[type="text"], input[type="number"], select {
+    width:100%;
+    padding:0.6rem 0.75rem;
+    margin-bottom:0.75rem;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.02);
+    color:var(--text);
+    outline:none;
+    transition: box-shadow .12s, border-color .12s;
+}
+input:focus{
+    box-shadow: 0 6px 16px rgba(125,211,252,0.08);
+    border-color: var(--accent-2);
+}
+
+/* buttons */
+.btn {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+    padding:0.55rem 0.9rem;
+    border-radius:8px;
+    border: none;
+    cursor:pointer;
+    font-weight:600;
+    color:#04111a;
+}
+.btn-primary{
+    background: linear-gradient(90deg,var(--accent), #ff9a8b);
+    color:#071019;
+    box-shadow: 0 8px 20px rgba(255,107,107,0.12);
+}
+.btn-ghost{
+    background:transparent;
+    color:var(--text);
+    border:1px solid rgba(255,255,255,0.04);
+}
+
+/* list/table of users */
+.user-list{
+    margin-top:0.5rem;
+    background: rgba(255,255,255,0.01);
+    padding:0.75rem;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.02);
+    max-height:360px;
+    overflow:auto;
+}
+.user-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.5rem;
+    border-bottom:1px dashed rgba(255,255,255,0.02);
+}
+.user-item:last-child{border-bottom:none}
+.user-name{
+    display:flex;
+    gap:0.75rem;
+    align-items:center;
+}
+.avatar{
+    width:36px;height:36px;border-radius:8px;
+    background:linear-gradient(135deg,var(--accent-2),var(--accent));
+    display:inline-flex;align-items:center;justify-content:center;
+    color:#061219;font-weight:700;
+}
+.small{font-size:0.9rem}
+.muted{color:var(--muted);font-size:0.85rem}
+
+/* footer */
+.card-footer{
+    grid-column: 1 / -1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:0.5rem;
+    border-top:1px solid rgba(255,255,255,0.02);
+    margin-top:0.5rem;
+    color:var(--muted);
+    font-size:0.9rem;
+}
+
+/* responsive */
+@media (max-width:920px){
+    .card{grid-template-columns:1fr;}
+    .sidebar{order:2}
+    .hero{order:1}
+}
+/* container centralizado para páginas */
+.container {
+  max-width: 980px;
+  margin: 2rem auto; /* centraliza horizontalmente */
+  padding: 1rem;
+}
+
+/* wrapper para a tabela, adiciona scroll horizontal em telas pequenas */
+.table-wrap {
+  overflow-x: auto;
+  background: rgba(255,255,255,0.01);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+/* tabela base */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  color: var(--text);
+}
+
+/* cabeçalho */
+.table thead th {
+  text-align: left;           /* mantém os rótulos alinhados à esquerda */
+  padding: 0.75rem 0.9rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  border-bottom: 2px solid rgba(255,255,255,0.03);
+  background: linear-gradient(90deg, rgba(255,255,255,0.01), transparent);
+}
+
+/* células */
+.table tbody td,
+.table tbody th {
+  padding: 0.6rem 0.9rem;
+  vertical-align: middle;
+  text-align: left; /* garante que o conteúdo fique alinhado */
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+  font-size: 0.95rem;
+}
+
+/* alinhamento de colunas numéricas (idade, id) */
+.table .col-center { text-align: center; }
+.table .col-right  { text-align: right; }
+
+/* linhas alternadas para melhor leitura */
+.table tbody tr:nth-child(odd){
+  background: rgba(255,255,255,0.008);
+}
+
+/* responsividade: reduz padding em telas pequenas */
+@media (max-width:600px){
+  .table thead th, .table tbody td { padding: 0.5rem; font-size: 0.9rem; }
+}
